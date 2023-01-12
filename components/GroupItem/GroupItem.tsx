@@ -1,15 +1,19 @@
 import dynamic from "next/dynamic";
-import { Group, GroupCodeConfig } from "../../types";
+import { Group, GroupCodeConfig, Element } from "../../types";
+
+interface GroupItemComponentProps {
+  elements: Element[];
+}
 
 const getComponent = (c: string) =>
-  dynamic(() => import(`components/${c}`), {
+  dynamic<GroupItemComponentProps>(() => import(`components/${c}`), {
     ssr: false,
     loading: () => <p>Loading...</p>,
   });
 
-const GroupItem: React.FC<Group> = ({ code }) => {
+const GroupItem: React.FC<Group> = ({ code, ...props }) => {
   const Component = getComponent(GroupCodeConfig[code]);
-  return <Component />;
+  return <Component {...props} />;
 };
 
 export default GroupItem;
