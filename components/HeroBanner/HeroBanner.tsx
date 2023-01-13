@@ -1,10 +1,9 @@
 import { Element } from "../../types";
 import ElementItem from "../ElementItem";
 
-const HeroBanner: React.FC<{ elements: Element[] }> = ({ elements }) => {
+const HeroBannerContent: React.FC<{ elements: Element[] }> = ({ elements }) => {
   return (
     <div>
-      Hero banner
       {elements.map((e) => (
         <ElementItem key={Math.random()} {...e} />
       ))}
@@ -12,4 +11,4 @@ const HeroBanner: React.FC<{ elements: Element[] }> = ({ elements }) => {
   );
 };
 
-export default HeroBanner;
+export default HeroBannerContent;

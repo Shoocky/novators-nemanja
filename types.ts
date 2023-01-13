@@ -7,8 +7,8 @@ export enum GroupCode {
 export type GroupCodeConfigType = { [key in keyof typeof GroupCode]: string };
 
 export const GroupCodeConfig: GroupCodeConfigType = {
-  category_lister: "CategoryLister",
   "hero-banner": "HeroBanner",
+  category_lister: "CategoryLister",
 };
 
 export type Group = {
@@ -32,11 +32,14 @@ export const ElementCodeConfig: ElementCodeConfigType = {
   product_tag_groups: "ProductTagGroups",
 };
 
+// element can probably be further moved into union of possible element types (herobanner, product tag groups etc...)
 export interface Element {
   code: ElementCode;
-  configuration?: any;
+  configuration: Configuration[];
   markdown_content?: string;
-  media: Media;
+  linked_product_tag_groups: LinkedProductTagGroup[];
+  media: Media[];
+  urls: URL[];
 }
 
 /* Media */
@@ -51,4 +54,31 @@ export type URL = {
   name: string;
   target: string;
   url: string;
+};
+
+/* Configuration */
+
+export type Configuration = {
+  height?: number;
+};
+
+/* Product tag group */
+export type ProductTag = {
+  name?: string;
+  media_alt?: string;
+  media_url?: string;
+  url?: string;
+};
+
+export type LinkedProductTag = {
+  product_tag: ProductTag[];
+};
+
+export type ProductTagGroup = {
+  name: string;
+  linked_product_tags: LinkedProductTag[];
+};
+
+export type LinkedProductTagGroup = {
+  product_tag_group: ProductTagGroup;
 };

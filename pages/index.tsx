@@ -24,8 +24,10 @@ const Home: React.FC<HomeProps> = ({ groups }) => {
   return (
     <>
       <main>
-        {groups.map((g) => (
-          <GroupItem key={Math.random()} {...g} />
+        {groups.map((g, index) => (
+          <div key={index} className="mt-4 first:mt-0">
+            <GroupItem {...g} />
+          </div>
         ))}
       </main>
     </>

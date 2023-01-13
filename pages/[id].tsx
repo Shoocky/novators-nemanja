@@ -35,7 +35,7 @@ const Category: React.FC<CategoryProps> = ({ groups }) => {
     <>
       <main>
         {groups.map((g) => (
-          <GroupItem key={Math.random()} {...g} />
+          <GroupItem key={g.code} {...g} />
         ))}
       </main>
     </>

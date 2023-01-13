@@ -1,4 +1,6 @@
 import dynamic from "next/dynamic";
+import React from "react";
+import { useCallback } from "react";
 import { Element, ElementCode, ElementCodeConfig } from "../../types";
 
 interface ElementItemComponentProps {
@@ -7,7 +9,7 @@ interface ElementItemComponentProps {
 
 const getComponent = (c: string) =>
   dynamic<ElementItemComponentProps>(() => import(`components/${c}`), {
-    ssr: false,
+    ssr: true,
     loading: () => <p>Loading...</p>,
   });
 
