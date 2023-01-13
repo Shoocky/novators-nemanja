@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import React from "react";
-import { useCallback } from "react";
 import { Element, ElementCode, ElementCodeConfig } from "../../types";
 
 interface ElementItemComponentProps {

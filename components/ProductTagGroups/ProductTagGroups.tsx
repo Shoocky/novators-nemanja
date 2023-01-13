@@ -1,12 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import {
-  Element,
-  LinkedProductTagGroup,
-  ProductTagGroup,
-  URL,
-  ProductTag,
-} from "../../types";
+import { Element, ProductTagGroup, ProductTag } from "../../types";
 import Link from "../Link";
 
 const ProductTagView: React.FC<ProductTag> = ({

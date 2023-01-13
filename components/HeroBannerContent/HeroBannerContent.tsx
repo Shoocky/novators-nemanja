@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { Element } from "../../types";
